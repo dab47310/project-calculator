@@ -1,0 +1,82 @@
+/* UNIVERSAL STYLES
+-----------------------*/
+
+html {
+  background: url(images/unsplash_luke-chesser_gradient.jpg) no-repeat center center fixed;
+  background-size: cover;
+  box-sizing: border-box;
+  color: white; 
+  font-family: 'Quicksand', sans-serif;
+
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+#calculator-container {
+  border: 2em solid white;
+  border-radius: 3em;
+  height: 100%;
+  margin: 0 auto;
+  padding: 10em;
+  width: 75%;
+
+  display: grid;
+  align-items: center;
+  grid-template-rows: 2fr repeat(5, 1fr);
+  justify-items: center;
+  row-gap: 1em;
+}
+
+#display-computation {
+  border: 1.5em solid white;
+  border-radius: 3em;
+  height: 65%;
+  width: 95%;
+}
+
+.buttons-row {
+  column-gap: 1em;
+  width: 100%;
+
+  display: grid;
+  align-items: stretch;
+  grid-template-columns: repeat(4, 1fr);
+  justify-items: center;
+}
+
+button {
+  background-color: rgb(255, 255, 255, 0.2);;
+  border: 2em solid rgb(255, 255, 255, 0.1);
+  border-radius: 3em;
+  padding: 3em;
+  width: 95%;
+}
+
+button:hover {
+  background-color: rgb(255, 255, 255, 0.3);
+  border: 2em solid rgb(255, 255, 255, 0.2);
+  border-color: ;
+  cursor: pointer;
+}
+
+span {
+  color: white;
+  font-size: 10em;
+}
+
+#sq_rt > span {
+  margin-left: -75px;
+}
+
+#ac_ce {
+  padding: 0em;
+}
+
+#ac_ce > span {
+  font-size: 6.5em;
+}
