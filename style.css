@@ -4,16 +4,17 @@
 }
 
 body {
-  padding: 0;
-  margin: 0;
   background: linear-gradient(45deg, #904590, #e96f4b, #f6c96e);
+  margin: 0;
+  padding: 0;
 }
 
 .calculator-grid {
+  min-height: 100vh;
+
   display: grid;
   justify-content: center;
   align-content: center;
-  min-height: 100vh;
   grid-template-columns: repeat(4, 100px);
   grid-template-rows: minmax(120px, auto) repeat(5, 100px);
 }
@@ -32,33 +33,35 @@ body {
     }
   }
 
-.calculator-grid > button {
+button {
+  background-color: rgba(255, 255, 255, .125);
+  border: 1px solid rgba(255, 255, 255, .125);
   color: rgba(255, 255, 255, .675);
   cursor: pointer;
   font-size: 2em;
-  border: 1px solid rgba(255, 255, 255, .125);
   outline: none;
-  background-color: rgba(255, 255, 255, .125);
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, .25);
+  color: rgba(255, 255, 255, 1);
 }
 
 button[data-operator], #round-left-corner, #round-right-corner {
   font-size: 2.75em
 }
 
-  @media (max-width: 450px) {
-    .calculator-grid > button {
+  @media (max-width: 450px),(max-height: 650px) {
+    button {
       font-size: 1.625em;
     }
-    button[data-operation], #round-left-corner, #round-right-corner {
+    button[data-operator], #round-left-corner, #round-right-corner {
       font-size: 2.25em;
     }
   }
 
-  @media (max-width: 350px) {
-    .calculator-grid > button {
-      font-size: 1.25em;
-    }
-    button[data-operation], #round-left-corner, #round-right-corner {
+  @media (max-width: 350px), (max-height: 500px) {
+    button[data-operator], #round-left-corner, #round-right-corner {
       font-size: 1.75em
     }
   }
@@ -71,30 +74,45 @@ button[data-operator], #round-left-corner, #round-right-corner {
   border-bottom-right-radius: 0.375em;
 }
 
-.calculator-grid > button:hover {
-  background-color: rgba(255, 255, 255, .25);
-  color: rgba(255, 255, 255, 1);
-}
-
 .output {
   grid-column: 1 / -1;
   background-color: rgba(0, 0, 0, .375);
   border-radius: 0.75em 0.75em 0 0;
+  
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
   flex-direction: column;
   padding: 10px;
-  word-wrap: break-word;
-  word-break: break-all;
 }
 
-.output .previous-operand {
+.previous-calculation {
   color: rgba(255, 255, 255, .75);
   font-size: 1.5em;
 }
 
-.output .current-operand {
+.current-operand {
   color: white;
   font-size: 2.5em;
 }
+
+@media (max-width: 450px),(max-height: 650px) {
+  .previous-calculation {
+    font-size: 1.125em;
+  }
+  .current-operand {
+    font-size: 2em;
+  }
+}
+
+
+@media (max-width: 350px), (max-height: 500px) {
+  .previous-calculation {
+    font-size: 1em;
+  }
+  .current-operand {
+    font-size: 1.725em;
+  }
+}
+
+
