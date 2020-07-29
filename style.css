@@ -91,7 +91,7 @@ button[data-operator], #round-left-corner, #round-right-corner {
   font-size: 1.5em;
 }
 
-.current-operand {
+.current-number {
   color: white;
   font-size: 2.5em;
 }
@@ -100,7 +100,7 @@ button[data-operator], #round-left-corner, #round-right-corner {
   .previous-calculation {
     font-size: 1.125em;
   }
-  .current-operand {
+  .current-number {
     font-size: 2em;
   }
 }
@@ -110,7 +110,7 @@ button[data-operator], #round-left-corner, #round-right-corner {
   .previous-calculation {
     font-size: 1em;
   }
-  .current-operand {
+  .current-number {
     font-size: 1.725em;
   }
 }
