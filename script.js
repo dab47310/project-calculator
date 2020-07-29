@@ -134,6 +134,9 @@ operatorButtons.forEach(button => button.addEventListener('click', () => {
 }))
 
 computerButton.addEventListener('click', ()=> {
+  if (calculator.previousCalculation == ''){
+    return
+  }
   let calculatedValue = calculator.operate();
   calculator.changeCurrentNumber(calculatedValue, replace=true);
   calculator.changeCurrentNumberDisplay(calculator.currentNumber, replace=true, answer=true);
@@ -179,4 +182,31 @@ clearButton.addEventListener('click', ()=>{
   calculator.changePreviousCalculation('', replace=true);
   calculator.changePreviousCalculationDisplay('', replace=true);
 })
+
+document.addEventListener("keydown", (e) => {
+  if (e.key == "." || (e.key >= 0 && e.key <= 9)) {
+    event.preventDefault();
+    document.querySelector(`button[data-number='${e.key}']`).click()
+  } else if (e.key == "+") {
+    event.preventDefault();
+    document.querySelector("button[data-operator='+']").click()
+  } else if (e.key == "-") {
+    event.preventDefault();
+    document.querySelector("button[data-operator='-']").click()
+  } else if (e.key == "/") {
+    event.preventDefault();
+    document.querySelector("button[data-operator='÷']").click()
+  } else if (e.key == "*") {
+    event.preventDefault();
+    document.querySelector("button[data-operator='×']").click()
+  } else if (e.key == "Enter" || e.key == "=") {
+    event.preventDefault();
+    computerButton.click();
+  } else if (e.key == "Backspace") {
+    delButton.click();
+  } else if (e.key == "Delete" || e.key == "Escape") {
+    event.preventDefault();
+    clearButton.click()
+  }
+});
 
