@@ -149,10 +149,6 @@ pctButton.addEventListener('click', ()=> {
   calculator.changeCurrentNumberDisplay(calculator.currentNumber, replace=true);
 })
 
-pctButton.addEventListener('click', ()=> {
-  calculator.changeCurrentNumber((calculator.currentNumber  *.01).toString(), replace=true);
-  calculator.changeCurrentNumberDisplay(calculator.currentNumber, replace=true);
-})
 
 valueInvertButton.addEventListener('click', ()=> {
   if (calculator.currentNumber == ''){
@@ -184,29 +180,25 @@ clearButton.addEventListener('click', ()=>{
 })
 
 document.addEventListener("keydown", (e) => {
+  event.preventDefault();
+  console.log(e.key)
   if (e.key == "." || (e.key >= 0 && e.key <= 9)) {
-    event.preventDefault();
     document.querySelector(`button[data-number='${e.key}']`).click()
   } else if (e.key == "+") {
-    event.preventDefault();
     document.querySelector("button[data-operator='+']").click()
   } else if (e.key == "-") {
-    event.preventDefault();
     document.querySelector("button[data-operator='-']").click()
   } else if (e.key == "/") {
-    event.preventDefault();
     document.querySelector("button[data-operator='÷']").click()
   } else if (e.key == "*") {
-    event.preventDefault();
     document.querySelector("button[data-operator='×']").click()
   } else if (e.key == "Enter" || e.key == "=") {
-    event.preventDefault();
     computerButton.click();
+  } else if (e.key == "%") {
+    pctButton.click();
   } else if (e.key == "Backspace") {
     delButton.click();
   } else if (e.key == "Delete" || e.key == "Escape") {
-    event.preventDefault();
     clearButton.click()
   }
 });
-
